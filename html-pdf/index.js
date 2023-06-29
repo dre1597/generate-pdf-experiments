@@ -7,7 +7,11 @@ const options = {
   orientation: 'portrait',
 };
 
-const file = fs.readFileSync(`./index.html`, 'utf8').toString();
+let file = fs.readFileSync(__dirname + '/index.html', 'utf8').toString();
+
+for (let i = 0; i < 20000; i++) {
+  file += '<p>Hello World</p>';
+}
 
 htmlToPDF.create(file, options).toFile('./output.pdf', (err, res) => {
   if (err) throw err;
