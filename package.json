@@ -1,0 +1,15 @@
+{
+  "name": "generate-pdf-experiments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "html-pdf/index.js",
+  "scripts": {
+    "htmlPdF": "node html-pdf/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-pdf": "^3.0.1"
+  }
+}
