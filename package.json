@@ -5,13 +5,15 @@
   "main": "html-pdf/index.js",
   "scripts": {
     "htmlPdF": "node html-pdf/index.js",
-    "pdfMake": "node pdfmake/index.js"
+    "pdfMake": "node pdfmake/index.js",
+    "pdfKit": "node pdfkit/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "html-pdf": "^3.0.1",
+    "pdfkit": "^0.13.0",
     "pdfmake": "^0.2.7"
   }
 }
