@@ -23,43 +23,21 @@ Route.on('/').render('welcome');
 Route.get('/pdf', async ({ response }) => {
 
 
-  const doc = new PDFDocument();
+  const doc = new PDFDocument({ size: `A4` });
 
   doc.pipe(fs.createWriteStream('output.pdf'));
 
-  doc
-    .fontSize(25)
-    .text('Some text with an embedded font!', 100, 100);
-
-  const longText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in suscipit purus.  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec hendrerit felis. Morbi aliquam facilisis risus eu lacinia. Sed eu leo in turpis fringilla hendrerit. Ut nec accumsan nisl.';
+  doc.image(`${__dirname}/../public/capa.png`, 0, 0, { fit: [595.28, 841.89] });
 
   doc
     .addPage()
-    .fontSize(25)
-    .text(`${longText}`, 100, 100)
-    .text(`${longText}`)
-    .text(`${longText}`);
-
-  doc
-    .save()
-    .moveTo(100, 150)
-    .lineTo(100, 250)
-    .lineTo(200, 250)
-    .fill('#FF3300');
-
-  doc
-    .scale(0.6)
-    .translate(470, -380)
-    .path('M 250,75 L 323,301 131,161 369,161 177,301 z')
-    .fill('red', 'even-odd')
-    .restore();
-
-  doc
-    .addPage()
-    .fillColor('blue')
-    .text('Here is a link!', 100, 100)
-    .underline(100, 100, 160, 27, { color: '#0000FF' })
-    .link(100, 100, 160, 27, 'http://google.com/');
+    .lineWidth(25)
+    .lineCap('round')
+    .moveTo(50, 20)
+    .lineTo(530, 20)
+    .stroke()
+    .fillColor('white')
+    .text('Hello world', 50, 20);
 
   doc.end();
 });
