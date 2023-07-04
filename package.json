@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "html-pdf/index.js",
+  "type": "module",
   "scripts": {
     "htmlPdF": "node html-pdf/index.js",
     "pdfMake": "node pdfmake/index.js",
